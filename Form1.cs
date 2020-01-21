@@ -30,6 +30,9 @@ namespace LEDControl
         private void Form1_Load(object sender, EventArgs e)
         {
             addPorts();
+            label1.Text = Properties.Settings.Default.indexcom.ToString();
+            comboBox1.SelectedIndex = Properties.Settings.Default.indexcom ;
+            comboBox2.SelectedIndex  = Properties.Settings.Default.indexbaud;
         }
 
         private void Form1_Enter(object sender, EventArgs e)
@@ -79,6 +82,7 @@ namespace LEDControl
                 label1.Text = "OPEN";
                 Properties.Settings.Default.indexcom = comboBox1.SelectedIndex;
                 Properties.Settings.Default.indexbaud = comboBox2.SelectedIndex;
+                label2.Text = comboBox1.SelectedIndex.ToString();
             }
             catch
             {
