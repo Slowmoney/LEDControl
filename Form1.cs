@@ -100,19 +100,8 @@ namespace LEDControl
 
         }
 
-        private void RadioButton25_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void RadioButton38_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void RadioButton37_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
