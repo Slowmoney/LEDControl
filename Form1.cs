@@ -94,9 +94,11 @@ namespace LEDControl
         }
         private void Select_Mode(object sender, EventArgs e)
         {
-            label1.Text = "CHE";
+            
             RadioButton rb = sender as RadioButton;
+            label1.Text = rb.Text;
             label2.Text = rb.Name;
+            serialPort1.Write(rb.Name);
 
         }
 
