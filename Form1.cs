@@ -30,7 +30,9 @@ namespace LEDControl
         private void Form1_Load(object sender, EventArgs e)
         {
             addPorts();
-            label1.Text = Properties.Settings.Default.indexcom.ToString();
+           // label1.Text = Properties.Settings.Default.indexcom.ToString();
+
+            //label2.Text = Properties.Settings.Default.indexbaud.ToString();
             comboBox1.SelectedIndex = Properties.Settings.Default.indexcom ;
             comboBox2.SelectedIndex  = Properties.Settings.Default.indexbaud;
         }
@@ -64,7 +66,7 @@ namespace LEDControl
         {
          //   label1.Text = comboBox2.Text;
         if (comboBox2.SelectedIndex == -1) {
-                label1.Text = "lol";
+                info.Text = "lol";
                 return;
             }
         
@@ -79,30 +81,46 @@ namespace LEDControl
                 serialPort1.ReadTimeout = 1000;
                 serialPort1.WriteTimeout = 1000;
                 serialPort1.Open();
-                label1.Text = "OPEN";
+                
                 Properties.Settings.Default.indexcom = comboBox1.SelectedIndex;
                 Properties.Settings.Default.indexbaud = comboBox2.SelectedIndex;
-                label2.Text = comboBox1.SelectedIndex.ToString();
+                Properties.Settings.Default.Save();
+info.Text = comboBox2.SelectedIndex.ToString();
+                command.Text = comboBox1.SelectedIndex.ToString();
             }
             catch
             {
-                label1.Text = "ERROR";
+                info.Text = "ERROR";
                 return;
             }
         }
 
         private void TrackBar1_MouseCaptureChanged(object sender, EventArgs e)
         {
-            label1.Text = trackBar1.Value.ToString();
-            serialPort1.Write("b" + trackBar1.Value.ToString());
+            info.Text = trackBar1.Value.ToString();
+           try
+            {
+                 serialPort1.Write("b" + trackBar1.Value.ToString());
+            }
+            catch (System.InvalidOperationException)
+            {
+                info.Text = "ERROR PORT CLOSED";
+            }
         }
         private void Select_Mode(object sender, EventArgs e)
         {
             
             RadioButton rb = sender as RadioButton;
-            label1.Text = rb.Text;
-            label2.Text = rb.Name;
-            serialPort1.Write(rb.Name);
+            info.Text = rb.Text;
+            command.Text = rb.Name;
+            try
+            {
+                serialPort1.Write(rb.Name);
+            }
+            catch (System.InvalidOperationException) {
+                info.Text = "ERROR PORT CLOSED";
+            }
+            
 
         }
 
