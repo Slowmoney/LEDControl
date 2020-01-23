@@ -83,6 +83,10 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort1_DataReceived);
+            // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(2, 29);
