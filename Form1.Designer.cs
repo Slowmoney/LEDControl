@@ -710,7 +710,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.trackBar1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "LEDControl";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Enter += new System.EventHandler(this.Form1_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();

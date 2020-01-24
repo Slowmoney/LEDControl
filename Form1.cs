@@ -151,8 +151,9 @@ namespace LEDControl
 
             //  RadioButton btn = (RadioButton)this.Controls["m30"];
             //  btn.Enabled = false;
-           
-           // System.Activator.CreateInstance(Type.GetType("LEDControl.Form1.m30"));
+
+            RadioButton mode = (RadioButton)this.Controls.Find(spdata[0], true)[0];
+            mode.Checked = true;
         }
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
