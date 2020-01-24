@@ -65,9 +65,15 @@ namespace LEDControl
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            EnablePort();
+        }
+
+        private void EnablePort() {
+
             command.Text = button1.Text.Length.ToString();
             if (button1.Text.Length == 5)
             {
+                panel1.Enabled = false;
                 serialPort1.Close();
                 button1.Text = "OPEN";
             }
@@ -84,12 +90,12 @@ namespace LEDControl
                 {
                     // настройки порта
                     serialPort1.PortName = enableComPorts[comboBox1.SelectedIndex];
-                    serialPort1.BaudRate = Int16.Parse(comboBox2.Text); ;
+                    serialPort1.BaudRate = Int32.Parse(comboBox2.Text); ;
                     serialPort1.DataBits = 8;
                     serialPort1.Parity = System.IO.Ports.Parity.None;
                     serialPort1.StopBits = System.IO.Ports.StopBits.One;
-                    serialPort1.ReadTimeout = 1000;
-                    serialPort1.WriteTimeout = 1000;
+                    serialPort1.ReadTimeout = 100;
+                    serialPort1.WriteTimeout = 100;
                     serialPort1.Open();
 
                     Properties.Settings.Default.indexcom = comboBox1.SelectedIndex;
@@ -107,13 +113,16 @@ namespace LEDControl
                     info.Text = err.Message;
                     return;
                 }
-                catch (System.UnauthorizedAccessException err) {
+                catch (System.UnauthorizedAccessException err)
+                {
                     info.Text = err.Message;
                     return;
                 }
             }
+            panel1.Enabled = true;
         }
-        
+
+
         private void TrackBar1_MouseCaptureChanged(object sender, EventArgs e)
         {
             info.Text = trackBar1.Value.ToString();
@@ -139,21 +148,39 @@ namespace LEDControl
             catch (System.InvalidOperationException) {
                 info.Text = "ERROR PORT CLOSED";
             }
-
+            panel1.Enabled = false;
 
         }
         private delegate void fill(String data);
         private void fillData(String data) {
             command.Text = data;
-            string[] spdata = data.Split('\r', '\n');
-            trackBar1.Value = Convert.ToInt16(spdata[2].Substring(1));
+            if (data == "Start\n") {
+                //  serialPort1.Close();
+                serialPort1.Write("r");
+                panel1.Enabled = false;
+                return;
+            }
+            if (data == "OK\n") {
+                panel1.Enabled = true;
+                return;
+            }
+            try
+            {
+                string[] spdata = data.Split('\r', '\n');
+
+                trackBar1.Value = Convert.ToInt16(spdata[2].Substring(1));
 
 
-            //  RadioButton btn = (RadioButton)this.Controls["m30"];
-            //  btn.Enabled = false;
+                //  RadioButton btn = (RadioButton)this.Controls["m30"];
+                //  btn.Enabled = false;
 
-            RadioButton mode = (RadioButton)this.Controls.Find(spdata[0], true)[0];
-            mode.Checked = true;
+                RadioButton mode = (RadioButton)this.Controls.Find(spdata[0], true)[0];
+                mode.Checked = true;
+                panel1.Enabled = true;
+            }
+            catch {
+
+            }
         }
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {

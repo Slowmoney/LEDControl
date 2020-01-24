@@ -120,7 +120,8 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "9600"});
+            "9600",
+            "115200"});
             this.comboBox2.Location = new System.Drawing.Point(210, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
@@ -192,9 +193,10 @@
             this.panel1.Controls.Add(this.m2);
             this.panel1.Controls.Add(this.m1);
             this.panel1.Controls.Add(this.m0);
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(15, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(644, 424);
+            this.panel1.Size = new System.Drawing.Size(644, 318);
             this.panel1.TabIndex = 6;
             // 
             // m44
@@ -692,7 +694,7 @@
             // command
             // 
             this.command.AutoSize = true;
-            this.command.Location = new System.Drawing.Point(12, 488);
+            this.command.Location = new System.Drawing.Point(15, 382);
             this.command.Name = "command";
             this.command.Size = new System.Drawing.Size(0, 13);
             this.command.TabIndex = 7;
@@ -701,7 +703,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 572);
+            this.ClientSize = new System.Drawing.Size(668, 408);
             this.Controls.Add(this.command);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
