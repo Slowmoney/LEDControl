@@ -37,13 +37,37 @@ namespace LEDControl
         {
             
             addPorts();
+            try
+            {
+                menu_port.SelectedIndex = comboBox1.SelectedIndex = Properties.Settings.Default.indexcom;
+                menu_baud.SelectedIndex = comboBox2.SelectedIndex = Properties.Settings.Default.indexbaud;
+            }
+            catch { }
 
-            menu_port.SelectedIndex = comboBox1.SelectedIndex = Properties.Settings.Default.indexcom;
-             menu_baud.SelectedIndex = comboBox2.SelectedIndex = Properties.Settings.Default.indexbaud;
+
+            var controls = panel1.Controls.Cast<Control>();
+            //  controls.SelectMany(c => c.Text);
+  // You would obviously calculate this value at runtime
+            var a = controls.ToArray();
+ToolStripMenuItem[] items = new ToolStripMenuItem[a.Length];
+            int i = 0;
+            foreach (var buy in a)
+            {
+               
+               
+                    items[i] = new ToolStripMenuItem();
+                    items[i].Name = buy.Name;
+                    items[i].Tag = "specialDataHere";
+                    items[i].Text = buy.Text;
+                    items[i].Click += new EventHandler(Select_Mode);
 
 
 
+                i++;
+                
 
+            }
+            toolStripMenuItem1.DropDownItems.AddRange(items);
             this.ShowInTaskbar = false;
 
         }
@@ -177,6 +201,7 @@ panel1.Enabled = true;
         {
 
             RadioButton rb = sender as RadioButton;
+
             info.Text = rb.Text;
             command.Text = rb.Name;
             try
@@ -247,14 +272,10 @@ panel1.Enabled = true;
             }
         }
 
-        private void Menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
 
-        private void Form1_Activated(object sender, EventArgs e)
-        {
-            Hide();
-        }
+        
+
+       
     }
 }

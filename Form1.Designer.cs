@@ -91,6 +91,8 @@
             this.menu_open_port = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Op_form = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cobmo_mode = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
@@ -742,9 +744,10 @@
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Op_port,
             this.toolStripSeparator1,
-            this.Op_form});
+            this.Op_form,
+            this.toolStripMenuItem1});
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(129, 54);
+            this.Menu.Size = new System.Drawing.Size(129, 76);
             // 
             // Op_port
             // 
@@ -800,6 +803,19 @@
             this.Op_form.Size = new System.Drawing.Size(128, 22);
             this.Op_form.Text = "Open";
             this.Op_form.Click += new System.EventHandler(this.Popup);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cobmo_mode});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.toolStripMenuItem1.Text = "Mode";
+            // 
+            // cobmo_mode
+            // 
+            this.cobmo_mode.Name = "cobmo_mode";
+            this.cobmo_mode.Size = new System.Drawing.Size(121, 23);
             // 
             // Form1
             // 
@@ -897,6 +913,8 @@
         private System.Windows.Forms.ToolStripComboBox menu_port;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem menu_open_port;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripComboBox cobmo_mode;
     }
 }
 
