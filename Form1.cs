@@ -19,6 +19,11 @@ namespace LEDControl
         public Form1()
         {
             InitializeComponent();
+
+            this.notifyIcon1.MouseDoubleClick += new MouseEventHandler(notifyIcon1_MouseDoubleClick);
+
+            // добавляем событие на изменение окна
+            this.Resize += new System.EventHandler(this.Form1_Resize);
         }
 
         private void TrackBar1_ValueChanged(object sender, EventArgs e)
@@ -30,17 +35,22 @@ namespace LEDControl
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             addPorts();
-            // label1.Text = Properties.Settings.Default.indexcom.ToString();
 
-            //label2.Text = Properties.Settings.Default.indexbaud.ToString();
-            comboBox1.SelectedIndex = Properties.Settings.Default.indexcom;
-            comboBox2.SelectedIndex = Properties.Settings.Default.indexbaud;
+            menu_port.SelectedIndex = comboBox1.SelectedIndex = Properties.Settings.Default.indexcom;
+             menu_baud.SelectedIndex = comboBox2.SelectedIndex = Properties.Settings.Default.indexbaud;
+
+
+
+
+            this.ShowInTaskbar = false;
+
         }
 
         private void Form1_Enter(object sender, EventArgs e)
         {
-
+            Hide();
         }
         private void addPorts() {
             comboBox1.Items.Clear();
@@ -48,26 +58,54 @@ namespace LEDControl
 
             foreach (string port in enableComPorts)
             {
+                menu_port.Items.Add(port);
                 comboBox1.Items.Add(port);
             }
+           // menu_port.MaxDropDownItems = enableComPorts.Length;
         }
 
         private void ComboBox1_Click(object sender, EventArgs e)
         {
             addPorts();
         }
-
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void Popup(object sender, EventArgs e)
         {
-
-
+            this.Show();
+        }
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            // проверяем наше окно, и если оно было свернуто, делаем событие        
+            if (WindowState == FormWindowState.Minimized)
+            {
+                // прячем наше окно из панели
+                this.ShowInTaskbar = false;
+                // делаем нашу иконку в трее активной
+                notifyIcon1.Visible = true;
+            }
         }
 
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // делаем нашу иконку скрытой
+          //  notifyIcon1.Visible = false;
+            // возвращаем отображение окна в панели
+            this.ShowInTaskbar = true;
+            //разворачиваем окно
+            WindowState = FormWindowState.Normal;
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             EnablePort();
         }
-
+        private void menu_port_change(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = menu_port.SelectedIndex;
+        }
+        private void menu_baud_change(object sender, EventArgs e)
+        {
+            comboBox2.SelectedIndex = menu_baud.SelectedIndex;
+        }
         private void EnablePort() {
 
             command.Text = button1.Text.Length.ToString();
@@ -104,7 +142,7 @@ namespace LEDControl
                     info.Text = comboBox2.SelectedIndex.ToString();
                     // command.Text = comboBox1.SelectedIndex.ToString();
                     serialPort1.Write("r");
-
+panel1.Enabled = true;
                     button1.Text = "CLOSE";
                 }
                 catch (System.InvalidOperationException err)
@@ -119,7 +157,7 @@ namespace LEDControl
                     return;
                 }
             }
-            panel1.Enabled = true;
+            
         }
 
 
@@ -149,6 +187,7 @@ namespace LEDControl
                 info.Text = "ERROR PORT CLOSED";
             }
             panel1.Enabled = false;
+            timer1.Enabled = true;
 
         }
         private delegate void fill(String data);
@@ -169,7 +208,7 @@ namespace LEDControl
                 string[] spdata = data.Split('\r', '\n');
 
                 trackBar1.Value = Convert.ToInt16(spdata[2].Substring(1));
-
+                trackBar2.Value = Convert.ToInt16(spdata[4].Substring(1));
 
                 //  RadioButton btn = (RadioButton)this.Controls["m30"];
                 //  btn.Enabled = false;
@@ -187,6 +226,35 @@ namespace LEDControl
             String a = serialPort1.ReadExisting();
             Invoke(new fill(fillData),new object[] { a });
             
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            panel1.Enabled = true;
+            timer1.Enabled = false;
+        }
+
+        private void TrackBar2_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            info.Text = trackBar2.Value.ToString();
+            try
+            {
+                serialPort1.Write("d" + trackBar2.Value.ToString());
+            }
+            catch (System.InvalidOperationException)
+            {
+                info.Text = "ERROR PORT CLOSED";
+            }
+        }
+
+        private void Menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

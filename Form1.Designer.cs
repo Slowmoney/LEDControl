@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -79,8 +80,21 @@
             this.m2 = new System.Windows.Forms.RadioButton();
             this.m1 = new System.Windows.Forms.RadioButton();
             this.command = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Op_port = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_port = new System.Windows.Forms.ToolStripComboBox();
+            this.menu_baud = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_open_port = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Op_form = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -95,7 +109,6 @@
             this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.trackBar1.Size = new System.Drawing.Size(144, 45);
             this.trackBar1.TabIndex = 0;
-            this.trackBar1.ValueChanged += new System.EventHandler(this.TrackBar1_ValueChanged);
             this.trackBar1.MouseCaptureChanged += new System.EventHandler(this.TrackBar1_MouseCaptureChanged);
             // 
             // comboBox1
@@ -105,7 +118,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(202, 21);
             this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.ComboBox1_Click);
             // 
             // info
@@ -129,6 +141,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(337, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -694,16 +707,107 @@
             // command
             // 
             this.command.AutoSize = true;
-            this.command.Location = new System.Drawing.Point(15, 382);
+            this.command.Location = new System.Drawing.Point(15, 386);
             this.command.Name = "command";
             this.command.Size = new System.Drawing.Size(0, 13);
             this.command.TabIndex = 7;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 800;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(515, 15);
+            this.trackBar2.Maximum = 100;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.trackBar2.Size = new System.Drawing.Size(144, 45);
+            this.trackBar2.TabIndex = 0;
+            this.trackBar2.MouseCaptureChanged += new System.EventHandler(this.TrackBar2_MouseCaptureChanged);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "led";
+            this.notifyIcon1.BalloonTipTitle = "led";
+            this.notifyIcon1.ContextMenuStrip = this.Menu;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "LEDControl";
+            this.notifyIcon1.Visible = true;
+            // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Op_port,
+            this.toolStripSeparator1,
+            this.Op_form});
+            this.Menu.Name = "Menu";
+            this.Menu.Size = new System.Drawing.Size(129, 54);
+            // 
+            // Op_port
+            // 
+            this.Op_port.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_port,
+            this.menu_baud,
+            this.toolStripSeparator2,
+            this.menu_open_port});
+            this.Op_port.Name = "Op_port";
+            this.Op_port.Size = new System.Drawing.Size(128, 22);
+            this.Op_port.Text = "Open port";
+            // 
+            // menu_port
+            // 
+            this.menu_port.DropDownHeight = 50;
+            this.menu_port.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menu_port.IntegralHeight = false;
+            this.menu_port.Name = "menu_port";
+            this.menu_port.Size = new System.Drawing.Size(121, 23);
+            this.menu_port.SelectedIndexChanged += new System.EventHandler(this.menu_port_change);
+            // 
+            // menu_baud
+            // 
+            this.menu_baud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.menu_baud.Items.AddRange(new object[] {
+            "9600",
+            "115200"});
+            this.menu_baud.Name = "menu_baud";
+            this.menu_baud.Size = new System.Drawing.Size(121, 23);
+            this.menu_baud.SelectedIndexChanged += new System.EventHandler(this.menu_baud_change);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            // 
+            // menu_open_port
+            // 
+            this.menu_open_port.CheckOnClick = true;
+            this.menu_open_port.Name = "menu_open_port";
+            this.menu_open_port.Size = new System.Drawing.Size(181, 22);
+            this.menu_open_port.Text = "OPEN";
+            this.menu_open_port.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
+            // 
+            // Op_form
+            // 
+            this.Op_form.Name = "Op_form";
+            this.Op_form.Size = new System.Drawing.Size(128, 22);
+            this.Op_form.Text = "Open";
+            this.Op_form.Click += new System.EventHandler(this.Popup);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 408);
+            this.ContextMenuStrip = this.Menu;
+            this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.command);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -711,13 +815,20 @@
             this.Controls.Add(this.info);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.trackBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(684, 447);
+            this.MinimumSize = new System.Drawing.Size(684, 447);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "LEDControl";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Enter += new System.EventHandler(this.Form1_Enter);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -775,6 +886,17 @@
         private System.Windows.Forms.RadioButton m40;
         private System.Windows.Forms.RadioButton m39;
         private System.Windows.Forms.Label command;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem Op_port;
+        private System.Windows.Forms.ToolStripMenuItem Op_form;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripComboBox menu_baud;
+        private System.Windows.Forms.ToolStripComboBox menu_port;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem menu_open_port;
     }
 }
 
