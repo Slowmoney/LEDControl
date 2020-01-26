@@ -162,7 +162,7 @@
             this.m0.TabStop = true;
             this.m0.Text = "ALL OFF";
             this.m0.UseVisualStyleBackColor = true;
-            this.m0.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m0.Click += new System.EventHandler(this.Select_Mode);
             // 
             // panel1
             // 
@@ -224,7 +224,7 @@
             this.m44.TabStop = true;
             this.m44.Text = "Strobe";
             this.m44.UseVisualStyleBackColor = true;
-            this.m44.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m44.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m43
             // 
@@ -236,7 +236,7 @@
             this.m43.TabStop = true;
             this.m43.Text = "theaterChaseRainbow";
             this.m43.UseVisualStyleBackColor = true;
-            this.m43.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m43.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m42
             // 
@@ -248,7 +248,7 @@
             this.m42.TabStop = true;
             this.m42.Text = "theaterChase";
             this.m42.UseVisualStyleBackColor = true;
-            this.m42.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m42.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m41
             // 
@@ -260,7 +260,7 @@
             this.m41.TabStop = true;
             this.m41.Text = "SnowSparkle";
             this.m41.UseVisualStyleBackColor = true;
-            this.m41.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m41.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m40
             // 
@@ -272,7 +272,7 @@
             this.m40.TabStop = true;
             this.m40.Text = "Sparkle";
             this.m40.UseVisualStyleBackColor = true;
-            this.m40.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m40.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m39
             // 
@@ -284,7 +284,7 @@
             this.m39.TabStop = true;
             this.m39.Text = "RunningLights";
             this.m39.UseVisualStyleBackColor = true;
-            this.m39.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m39.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m38
             // 
@@ -296,7 +296,7 @@
             this.m38.TabStop = true;
             this.m38.Text = "rainbowTwinkle";
             this.m38.UseVisualStyleBackColor = true;
-            this.m38.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m38.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m37
             // 
@@ -308,7 +308,7 @@
             this.m37.TabStop = true;
             this.m37.Text = "rainbowCycle";
             this.m37.UseVisualStyleBackColor = true;
-            this.m37.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m37.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m36
             // 
@@ -320,7 +320,7 @@
             this.m36.TabStop = true;
             this.m36.Text = "NewKITT";
             this.m36.UseVisualStyleBackColor = true;
-            this.m36.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m36.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m35
             // 
@@ -332,7 +332,7 @@
             this.m35.TabStop = true;
             this.m35.Text = "Fire";
             this.m35.UseVisualStyleBackColor = true;
-            this.m35.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m35.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m34
             // 
@@ -344,7 +344,7 @@
             this.m34.TabStop = true;
             this.m34.Text = "CylonBounce";
             this.m34.UseVisualStyleBackColor = true;
-            this.m34.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m34.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m33
             // 
@@ -356,7 +356,7 @@
             this.m33.TabStop = true;
             this.m33.Text = "colorWipe";
             this.m33.UseVisualStyleBackColor = true;
-            this.m33.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m33.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m32
             // 
@@ -368,7 +368,7 @@
             this.m32.TabStop = true;
             this.m32.Text = "MARCH STRIP NOW CCW";
             this.m32.UseVisualStyleBackColor = true;
-            this.m32.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m32.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m31
             // 
@@ -380,7 +380,7 @@
             this.m31.TabStop = true;
             this.m31.Text = "MARCH STRIP NOW CCW";
             this.m31.UseVisualStyleBackColor = true;
-            this.m31.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m31.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m30
             // 
@@ -392,7 +392,7 @@
             this.m30.TabStop = true;
             this.m30.Text = "NEW RAINBOW LOOP";
             this.m30.UseVisualStyleBackColor = true;
-            this.m30.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m30.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m29
             // 
@@ -404,7 +404,7 @@
             this.m29.TabStop = true;
             this.m29.Text = "MATRIX RAIN";
             this.m29.UseVisualStyleBackColor = true;
-            this.m29.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m29.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m28
             // 
@@ -416,7 +416,7 @@
             this.m28.TabStop = true;
             this.m28.Text = "KITT";
             this.m28.UseVisualStyleBackColor = true;
-            this.m28.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m28.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m27
             // 
@@ -428,7 +428,7 @@
             this.m27.TabStop = true;
             this.m27.Text = "RGB PROPELLER";
             this.m27.UseVisualStyleBackColor = true;
-            this.m27.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m27.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m26
             // 
@@ -440,7 +440,7 @@
             this.m26.TabStop = true;
             this.m26.Text = "EMERGECNY STROBE";
             this.m26.UseVisualStyleBackColor = true;
-            this.m26.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m26.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m25
             // 
@@ -452,7 +452,7 @@
             this.m25.TabStop = true;
             this.m25.Text = "RANDOM COLOR POP";
             this.m25.UseVisualStyleBackColor = true;
-            this.m25.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m25.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m24
             // 
@@ -464,7 +464,7 @@
             this.m24.TabStop = true;
             this.m24.Text = "PACMAN";
             this.m24.UseVisualStyleBackColor = true;
-            this.m24.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m24.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m23
             // 
@@ -476,7 +476,7 @@
             this.m23.TabStop = true;
             this.m23.Text = "VERITCAL RAINBOW";
             this.m23.UseVisualStyleBackColor = true;
-            this.m23.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m23.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m21
             // 
@@ -488,7 +488,7 @@
             this.m21.TabStop = true;
             this.m21.Text = "QUADRATIC BRIGHTNESS CURVE";
             this.m21.UseVisualStyleBackColor = true;
-            this.m21.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m21.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m20
             // 
@@ -500,7 +500,7 @@
             this.m20.TabStop = true;
             this.m20.Text = "POP LEFT/RIGHT";
             this.m20.UseVisualStyleBackColor = true;
-            this.m20.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m20.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m19
             // 
@@ -512,7 +512,7 @@
             this.m19.TabStop = true;
             this.m19.Text = "SIN WAVE BRIGHTNESS";
             this.m19.UseVisualStyleBackColor = true;
-            this.m19.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m19.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m16
             // 
@@ -524,7 +524,7 @@
             this.m16.TabStop = true;
             this.m16.Text = "RADIATION SYMBOL";
             this.m16.UseVisualStyleBackColor = true;
-            this.m16.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m16.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m15
             // 
@@ -536,7 +536,7 @@
             this.m15.TabStop = true;
             this.m15.Text = "MARCH RWB COLORS";
             this.m15.UseVisualStyleBackColor = true;
-            this.m15.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m15.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m14
             // 
@@ -548,7 +548,7 @@
             this.m14.TabStop = true;
             this.m14.Text = "MARCH RANDOM COLORS";
             this.m14.UseVisualStyleBackColor = true;
-            this.m14.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m14.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m13
             // 
@@ -560,7 +560,7 @@
             this.m13.TabStop = true;
             this.m13.Text = "CELL AUTO - RULE 30 (RED)";
             this.m13.UseVisualStyleBackColor = true;
-            this.m13.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m13.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m12
             // 
@@ -572,7 +572,7 @@
             this.m12.TabStop = true;
             this.m12.Text = "VERTICAL SOMETHING";
             this.m12.UseVisualStyleBackColor = true;
-            this.m12.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m12.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m11
             // 
@@ -584,7 +584,7 @@
             this.m11.TabStop = true;
             this.m11.Text = "PULSE COLOR SATURATION";
             this.m11.UseVisualStyleBackColor = true;
-            this.m11.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m11.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m10
             // 
@@ -596,7 +596,7 @@
             this.m10.TabStop = true;
             this.m10.Text = "PULSE COLOR BRIGHTNESS";
             this.m10.UseVisualStyleBackColor = true;
-            this.m10.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m10.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m9
             // 
@@ -608,7 +608,7 @@
             this.m9.TabStop = true;
             this.m9.Text = "STRIP FLICKER";
             this.m9.UseVisualStyleBackColor = true;
-            this.m9.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m9.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m8
             // 
@@ -620,7 +620,7 @@
             this.m8.TabStop = true;
             this.m8.Text = "POLICE LIGHTS SOLID";
             this.m8.UseVisualStyleBackColor = true;
-            this.m8.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m8.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m7
             // 
@@ -632,7 +632,7 @@
             this.m7.TabStop = true;
             this.m7.Text = "POLICE LIGHTS SINGLE";
             this.m7.UseVisualStyleBackColor = true;
-            this.m7.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m7.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m6
             // 
@@ -644,7 +644,7 @@
             this.m6.TabStop = true;
             this.m6.Text = "CYLON v2";
             this.m6.UseVisualStyleBackColor = true;
-            this.m6.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m6.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m5
             // 
@@ -656,7 +656,7 @@
             this.m5.TabStop = true;
             this.m5.Text = "CYLON v1";
             this.m5.UseVisualStyleBackColor = true;
-            this.m5.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m5.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m4
             // 
@@ -668,7 +668,7 @@
             this.m4.TabStop = true;
             this.m4.Text = "RANDOM BURST";
             this.m4.UseVisualStyleBackColor = true;
-            this.m4.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m4.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m3
             // 
@@ -680,7 +680,7 @@
             this.m3.TabStop = true;
             this.m3.Text = "RAINBOW LOOP";
             this.m3.UseVisualStyleBackColor = true;
-            this.m3.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m3.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m2
             // 
@@ -692,7 +692,7 @@
             this.m2.TabStop = true;
             this.m2.Text = "STRIP RAINBOW FADE";
             this.m2.UseVisualStyleBackColor = true;
-            this.m2.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m2.Click += new System.EventHandler(this.Select_Mode);
             // 
             // m1
             // 
@@ -704,7 +704,7 @@
             this.m1.TabStop = true;
             this.m1.Text = "ALL ON";
             this.m1.UseVisualStyleBackColor = true;
-            this.m1.CheckedChanged += new System.EventHandler(this.Select_Mode);
+            this.m1.Click += new System.EventHandler(this.Select_Mode);
             // 
             // command
             // 

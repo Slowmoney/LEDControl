@@ -42,7 +42,10 @@ namespace LEDControl
                 menu_port.SelectedIndex = comboBox1.SelectedIndex = Properties.Settings.Default.indexcom;
                 menu_baud.SelectedIndex = comboBox2.SelectedIndex = Properties.Settings.Default.indexbaud;
             }
-            catch { }
+            catch {
+                menu_port.SelectedIndex = 0;
+                menu_baud.SelectedIndex = 0;
+            }
 
 
             var controls = panel1.Controls.Cast<Control>();
@@ -50,15 +53,18 @@ namespace LEDControl
   // You would obviously calculate this value at runtime
             var a = controls.ToArray();
 ToolStripMenuItem[] items = new ToolStripMenuItem[a.Length];
+      
             int i = 0;
+            
             foreach (var buy in a)
             {
-               
-               
-                    items[i] = new ToolStripMenuItem();
+                
+
+                     items[i] = new ToolStripMenuItem();
                     items[i].Name = buy.Name;
-                    items[i].Tag = "specialDataHere";
+                  //  items[i].Tag = "specialDataHere";
                     items[i].Text = buy.Text;
+                items[i].CheckOnClick = true;
                     items[i].Click += new EventHandler(Select_Mode);
 
 
@@ -68,6 +74,7 @@ ToolStripMenuItem[] items = new ToolStripMenuItem[a.Length];
 
             }
             toolStripMenuItem1.DropDownItems.AddRange(items);
+            pan.
             this.ShowInTaskbar = false;
 
         }
@@ -197,20 +204,27 @@ panel1.Enabled = true;
                 info.Text = "ERROR PORT CLOSED";
             }
         }
-        private void Select_Mode(object sender, EventArgs e)
+     
+        private void Select_Mode(dynamic sender, EventArgs e)
         {
 
-            RadioButton rb = sender as RadioButton;
-
-            info.Text = rb.Text;
-            command.Text = rb.Name;
+            //dynamic rb = sender;
+           
+            info.Text = sender.Text;
+            command.Text = sender.Name;
             try
             {
-                serialPort1.Write(rb.Name);
+                serialPort1.Write(sender.Name);
             }
             catch (System.InvalidOperationException) {
                 info.Text = "ERROR PORT CLOSED";
             }
+
+           
+          this.Controls.Find(sender.Name,true)[0].Checked = true;
+           toolStripMenuItem1.DropDownItems.Find(sender.Name, true)[0].Checked = true ;
+
+         
             panel1.Enabled = false;
             timer1.Enabled = true;
 
@@ -235,8 +249,6 @@ panel1.Enabled = true;
                 trackBar1.Value = Convert.ToInt16(spdata[2].Substring(1));
                 trackBar2.Value = Convert.ToInt16(spdata[4].Substring(1));
 
-                //  RadioButton btn = (RadioButton)this.Controls["m30"];
-                //  btn.Enabled = false;
 
                 RadioButton mode = (RadioButton)this.Controls.Find(spdata[0], true)[0];
                 mode.Checked = true;
